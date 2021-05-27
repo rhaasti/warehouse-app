@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_quantity: 1
+  item: one
+  user: one
+  cycle_count: one
+
+two:
+  item_quantity: 1
+  item: two
+  user: two
+  cycle_count: two
