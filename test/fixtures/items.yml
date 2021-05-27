@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  vendor: MyString
+  type: 
+  inshape_stock_id: 1
+  vendor_stock_id: 1
+  purchase_link: MyString
+  purchase_measurement: 1
+  count_measurement: 1
+  count_type: MyString
+  purchase_type: MyString
+
+two:
+  name: MyString
+  vendor: MyString
+  type: 
+  inshape_stock_id: 1
+  vendor_stock_id: 1
+  purchase_link: MyString
+  purchase_measurement: 1
+  count_measurement: 1
+  count_type: MyString
+  purchase_type: MyString
