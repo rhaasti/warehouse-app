@@ -1,0 +1,2 @@
+class CycleCountsController < ApplicationController
+end

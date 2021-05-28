@@ -1,0 +1,21 @@
+<%= simple_form_for(@item) do |f| %>
+  <%= f.input :name, label: "item name" %>
+  <%= f.input :vendor, label: "vendor name" %>
+  <%= f.input :type, label: "item type" %>
+  <%= f.input :inshape_stock_id, label: "inshape_stock_id" %>
+<% end %>
+
+
+    t.string "name"
+    t.string "vendor"
+    t.string "type"
+    t.integer "inshape_stock_id"
+    t.integer "vendor_stock_id"
+    t.string "purchase_link"
+    t.integer "purchase_measurement"
+    t.integer "count_measurement"
+    t.string "count_type"
+    t.string "purchase_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "minimum"
