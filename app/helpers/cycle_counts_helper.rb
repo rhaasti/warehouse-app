@@ -1,0 +1,2 @@
+module CycleCountsHelper
+end

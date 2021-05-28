@@ -1,0 +1,2 @@
+class ItemCycleCountsController < ApplicationController
+end
