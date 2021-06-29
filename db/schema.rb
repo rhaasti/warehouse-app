@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_221223) do
+ActiveRecord::Schema.define(version: 2021_06_29_231728) do
 
   create_table "cycle_counts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_06_29_221223) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "vendor"
     t.string "type"
     t.integer "inshape_stock_id"
     t.integer "vendor_stock_id"
@@ -41,6 +40,8 @@ ActiveRecord::Schema.define(version: 2021_06_29_221223) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "minimum"
+    t.integer "vendor_id", null: false
+    t.index ["vendor_id"], name: "index_items_on_vendor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,6 +58,13 @@ ActiveRecord::Schema.define(version: 2021_06_29_221223) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vendors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "item_cycle_counts", "cycle_counts"
   add_foreign_key "item_cycle_counts", "items"
+  add_foreign_key "items", "vendors"
 end
