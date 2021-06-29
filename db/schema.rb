@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_225457) do
+ActiveRecord::Schema.define(version: 2021_06_29_221223) do
 
   create_table "cycle_counts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -20,13 +20,11 @@ ActiveRecord::Schema.define(version: 2021_05_27_225457) do
   create_table "item_cycle_counts", force: :cascade do |t|
     t.integer "item_quantity"
     t.integer "item_id", null: false
-    t.integer "user_id", null: false
     t.integer "cycle_count_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cycle_count_id"], name: "index_item_cycle_counts_on_cycle_count_id"
     t.index ["item_id"], name: "index_item_cycle_counts_on_item_id"
-    t.index ["user_id"], name: "index_item_cycle_counts_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -50,9 +48,15 @@ ActiveRecord::Schema.define(version: 2021_05_27_225457) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "item_cycle_counts", "cycle_counts"
   add_foreign_key "item_cycle_counts", "items"
-  add_foreign_key "item_cycle_counts", "users"
 end
