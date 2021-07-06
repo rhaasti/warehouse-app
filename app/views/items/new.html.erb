@@ -1,21 +1,15 @@
 <%= simple_form_for(@item) do |f| %>
   <%= f.input :name, label: "item name" %>
-  <%= f.input :vendor, label: "vendor name" %>
-  <%= f.input :type, label: "item type" %>
+  <%= f.association :vendor, label: "vendor_id" %>
   <%= f.input :inshape_stock_id, label: "inshape_stock_id" %>
+  <%= f.input :vendor_stock_id, label: "vendor stock id"%>
+  <%= f.input :purchase_link, label: "purchase_link" %>
+  <%= f.input :purchase_measurement, label: "purchase_measurement" %>
+  <%= f.input :count_measurement, label: "count_measurement" %>
+  <%= f.input :count_type, label: "count_type", collection: ["box", "roll", "each", "pallet"] %>
+  <%= f.input :purchase_type, label: "purchase_type", collection: ["box", "roll", "each", "pallet"]  %>
+  <%= f.input :minimum, label: "minimum" %>
+  <%= f.button :submit %>
 <% end %>
 
 
-    t.string "name"
-    t.string "vendor"
-    t.string "type"
-    t.integer "inshape_stock_id"
-    t.integer "vendor_stock_id"
-    t.string "purchase_link"
-    t.integer "purchase_measurement"
-    t.integer "count_measurement"
-    t.string "count_type"
-    t.string "purchase_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "minimum"

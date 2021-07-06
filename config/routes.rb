@@ -5,21 +5,21 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :items, only: [:new, :create] do
-    member do
-      get :item_cycle_count
+  resources :items, only: [:index, :show, :new, :create] do
+    resources :item_cycle_counts, only: [:new, :create]
   end
-end
 
-  resources :cycle_counts, only: [:new, :create] do
-    member do
-      get :item_cycle_count
+  resources :cycle_counts, only: [:index, :show, :new, :create] do
+    resources :item_cycle_counts, only: [:new, :create]
   end
+
+  resources :vendors, only: [:index, :show, :new, :create] do
+    resources :items, only: [:index, :show, :new, :create]
+  end
+
+
 end
 
-  resources :item_cycle_counts, only: [:new, :create]
 
-  # devise_for :user
-end
 
+#the key nested requires the parent key
