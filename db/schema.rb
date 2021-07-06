@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_231728) do
+ActiveRecord::Schema.define(version: 2021_07_06_192953) do
 
   create_table "cycle_counts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_06_29_231728) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "type"
     t.integer "inshape_stock_id"
     t.integer "vendor_stock_id"
     t.string "purchase_link"

@@ -16,6 +16,6 @@ class ItemsController < ApplicationController
   private
 
   def strong_params
-    params.require(:item).permit(:name, :vendor, :type, :inshape_stock_id, :vendor_stock_id, :purchase_link, :purchase_measurement, :count_measurement, :count_type, :purchase_type, :minimum)
+    params.require(:item).permit(:name, :vendor_id, :type, :inshape_stock_id, :vendor_stock_id, :purchase_link, :purchase_measurement, :count_measurement, :count_type, :purchase_type, :minimum)
   end
 end
