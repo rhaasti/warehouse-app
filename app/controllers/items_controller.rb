@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def show
+    @item = Item.find_by(id:params[:id])
+  end
+
   def new
     @item = Item.new
   end
@@ -11,6 +15,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(strong_params)
     @item.save
+    redirect_to items_path
   end
 
   private

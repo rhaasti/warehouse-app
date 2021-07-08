@@ -4,6 +4,10 @@ def index
   @vendors = Vendor.all
 end
 
+def show
+  @vendor = Vendor.find_by(id:params[:id])
+end
+
 def new
   @vendor = Vendor.new
 end

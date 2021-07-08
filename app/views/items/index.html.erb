@@ -1,0 +1,7 @@
+<h1> all items </h1>
+
+<% @items.each do |item| %>
+  <%= link_to item.name, item_path(item) %>
+  <%= item.vendor.name %>
+<% end %>
+
