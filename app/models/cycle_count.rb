@@ -1,2 +1,3 @@
 class CycleCount < ApplicationRecord
+
 end

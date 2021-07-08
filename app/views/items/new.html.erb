@@ -1,6 +1,6 @@
 <%= simple_form_for(@item) do |f| %>
   <%= f.input :name, label: "item name" %>
-  <%= f.association :vendor, label: "vendor_id" %>
+  <%= f.association :vendor, label: "vendor" %>
   <%= f.input :inshape_stock_id, label: "inshape_stock_id" %>
   <%= f.input :vendor_stock_id, label: "vendor stock id"%>
   <%= f.input :purchase_link, label: "purchase_link" %>

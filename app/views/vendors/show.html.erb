@@ -1,0 +1,7 @@
+<h1> <%= @vendor.name %> </h1>
+ <% @vendor.items.each do |item| %>
+ <h2> <%= item.name %> </h2>
+<% end %>
+
+<%= link_to "all vendors", vendors_path %>
+<%= link_to "home", root_path %>

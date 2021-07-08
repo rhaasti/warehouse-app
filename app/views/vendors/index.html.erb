@@ -1,0 +1,8 @@
+<h1> all vendors </h1>
+
+<% @vendors.each do |vendor| %>
+  <%= link_to vendor.name, vendor_path(vendor) %>
+<% end %>
+
+<%= link_to "home", root_path %>
+
