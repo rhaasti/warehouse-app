@@ -1,14 +1,20 @@
 <h1> welcome to the inventory site </h1>
 
-<%= link_to "create new item" , new_item_path %>
-<%= link_to "view all items", items_path %>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <%= link_to "create new item" , new_item_path %>
+  | <%= link_to "view all items", items_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to "create new vendor", new_vendor_path %>
+  | <%= link_to "view all vendors", vendors_path %>
+  </li>
+  <li class="list-group-item">
+    <%= link_to "create new cycle count" , new_cycle_count_path %>
+  | <%= link_to "view all cycle counts" , cycle_counts_path %>
+  </li>
+</ul>
 
-
-<%= link_to "create new vendor", new_vendor_path %>
-<%= link_to "view all vendors", vendors_path %>
-
-<%= link_to "create new cycle count" , new_cycle_count_path %>
-<%= link_to "view all cycle counts" , cycle_counts_path %>
 
 
 

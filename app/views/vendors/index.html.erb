@@ -1,8 +1,9 @@
 <h1> all vendors </h1>
 
 <% @vendors.each do |vendor| %>
-  <%= link_to vendor.name, vendor_path(vendor) %>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item"><%= link_to vendor.name, vendor_path(vendor) %> </li>
+</ul>
 <% end %>
 
 <%= link_to "home", root_path %>
-
