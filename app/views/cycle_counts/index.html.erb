@@ -1,0 +1,5 @@
+<h1> all cycle counts </h1>
+
+<% @cycle_counts.each do |cycle_count| %>
+ <p> <%= link_to cycle_count.id, cycle_count_path(cycle_count) %> </p>
+<% end %>
