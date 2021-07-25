@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   root to: "pages#home"
-
-
-  devise_for :users
 
   resources :items, only: [:index, :show, :new, :create] do
     resources :item_cycle_counts, only: [:new, :create]
@@ -16,6 +14,9 @@ Rails.application.routes.draw do
   resources :vendors, only: [:index, :show, :new, :create] do
     resources :items, only: [:index, :show, :new, :create]
   end
+
+  resources :item_cycle_counts, only: [:index, :show]
+
 
 
 end

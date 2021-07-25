@@ -17,6 +17,9 @@ ActiveRecord::Schema.define(version: 2021_07_06_192953) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  #you need the item_cycle_counts table, as it's the join table between [items] and [cycle counts]
+  #without item_cycle_counts, you're only able to add one item to a cycle count.
+
   create_table "item_cycle_counts", force: :cascade do |t|
     t.integer "item_quantity"
     t.integer "item_id", null: false

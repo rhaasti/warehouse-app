@@ -1,0 +1,16 @@
+<h1> cycle count id: <%= @cycle_count.id %> </h1>
+<h2> begin to enter your cycle count </h2>
+<h2> add items to your cycle count </h2>
+
+<%= simple_form_for [@cycle_count, @item_cycle_count] do |f| %>
+  <%= f.association :item, label: "item name" %>
+  <%= f.input :item_quantity, label: "quantity" %>
+  <%= f.button :submit %>
+<% end %>
+
+
+<%= link_to "view all cycle counts", item_cycle_counts_path %>
+
+
+
+
