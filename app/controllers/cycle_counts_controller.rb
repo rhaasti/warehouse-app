@@ -6,6 +6,7 @@ class CycleCountsController < ApplicationController
 
   def show
     @cycle_count = CycleCount.find_by(id:params[:id])
+    @item_cycle_count = ItemCycleCount.new
   end
 
   def new
@@ -15,7 +16,7 @@ class CycleCountsController < ApplicationController
   def create
     @cycle_count = CycleCount.new(strong_cycle_count_params)
     @cycle_count.save
-    redirect_to cycle_counts_path(@cycle_count)
+    redirect_to cycle_count_path(@cycle_count)
   end
 
   private
