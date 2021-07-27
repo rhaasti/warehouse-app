@@ -6,6 +6,7 @@ class CycleCountsController < ApplicationController
 
   def show
     @cycle_count = CycleCount.find_by(id:params[:id])
+    @all_items = ItemCycleCount.where(cycle_count_id: @cycle_count)
     @item_cycle_count = ItemCycleCount.new
   end
 
