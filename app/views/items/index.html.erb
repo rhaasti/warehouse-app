@@ -3,5 +3,12 @@
 <% @items.each do |item| %>
   <%= link_to item.name, item_path(item) %>
   <%= item.vendor.name %>
+  <% @updated_at = [] %>
+    <% item.item_cycle_counts.each do |item_cycle_count| %>
+      <%  @updated_at.push(item_cycle_count.updated_at) %>
+    <% end %>
+      <%= @updated_at.last %>
+      <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %>
 <% end %>
 
+<%= link_to "home", root_path %>
