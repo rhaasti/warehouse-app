@@ -1,14 +1,26 @@
 <h1> all items </h1>
 
-<% @items.each do |item| %>
-  <%= link_to item.name, item_path(item) %>
-  <%= item.vendor.name %>
-  <% @updated_at = [] %>
-    <% item.item_cycle_counts.each do |item_cycle_count| %>
-      <%  @updated_at.push(item_cycle_count.updated_at) %>
-    <% end %>
-      <%= @updated_at.last %>
-      <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %>
-<% end %>
+<div class="container">
+  <% @items.each do |item| %>
+<div class="row">
+  <div class="col-sm-3">
+    <%= link_to item.name, item_path(item) %>
+  </div>
+  <div class="col-sm-3">
+    <%= item.vendor.name %>
+  </div>
+    <% @updated_at = [] %>
+      <% item.item_cycle_counts.each do |item_cycle_count| %>
+        <%  @updated_at.push(item_cycle_count.updated_at) %>
+      <% end %>
+  <div class="col-sm-3">
+        <%= @updated_at.last %>
+  </div>
+  <div class="col-sm-3">
+   <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %>
+ </div>
+ </div>
+  <% end %>
+</div>
 
 <%= link_to "home", root_path %>
