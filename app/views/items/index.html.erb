@@ -17,7 +17,9 @@
         <%= @updated_at.last %>
   </div>
   <div class="col-sm-3">
-   <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %>
+    <% if item.item_cycle_counts.present?%>
+      <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %>
+    <% end %>
  </div>
  </div>
   <% end %>
