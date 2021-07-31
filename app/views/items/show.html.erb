@@ -1,6 +1,23 @@
 <h1> <%= @item.name %> </h1>
 <h2> <%= @item.vendor.name %> </h2>
 
+<% @updated_at = [] %>
+      <% @item.item_cycle_counts.each do |item_cycle_count| %>
+        <%  @updated_at.push(item_cycle_count.updated_at) %>
+      <% end %>
+  <div class="col-sm-3">
+
+  </div>
+
+  <div class="col-sm-3">
+    <% if @item.item_cycle_counts.present?%>
+  <p>
+    current on-hand: <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <br>
+    updated on: <%= @updated_at.last   %>
+  </p>
+    <% end %>
+  </div>
+
 <%= link_to "all items", items_path %>
 <%= link_to "home", root_path %>
 
