@@ -1,3 +1,19 @@
 <h1> end-of-month cycle counts </h1>
 
+<% months = ["January", "February", "March","April","May","June","July","August","September","October","November","December"] %>
+
+<% @hash = {} %>
+
+<% @item_cycle_counts.each do |item_cycle_count| %>
+  <% @hash[item_cycle_count.id] = item_cycle_count.updated_at.strftime("%B") %>
+<% end %>
+
+<% @hash %>
+
+<% months.each do |month| %>
+  <%= @hash.select { |key, value| value == month }.keys %>
+<% end %>
+
+
+<%= link_to "home", root_path %>
 
