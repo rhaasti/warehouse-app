@@ -2,6 +2,7 @@ class ItemCycleCountsController < ApplicationController
 
   def index
     @item_cycle_counts = ItemCycleCount.all
+    @items = Item.all
   end
 
   def show
