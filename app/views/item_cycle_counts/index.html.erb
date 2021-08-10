@@ -5,15 +5,28 @@
 <% @hash = {} %>
 
 <% @item_cycle_counts.each do |item_cycle_count| %>
-  <% @hash[item_cycle_count.id] = item_cycle_count.updated_at.strftime("%B") %>
+  <% @hash[item_cycle_count] = item_cycle_count.updated_at.strftime("%B") %>
 <% end %>
 
-<% @hash %>
 
-<% months.each do |month| %>
-  <%= @hash.select { |key, value| value == month }.keys %>
-<% end %>
-
+    <% months.each do |month| %>
+      <% item_cycle_counts_per_month = @hash.select { |key, value| value == month } %>
+        <% item_cycle_counts_per_month.each do |item_cycle_count| %>
+<div class="container">
+  <div class="row">
+        <div class="col-sm-3">
+          <%= item_cycle_count[0].item.name %>
+        </div>
+        <div class="col-sm-3">
+          <%= month %>
+        </div>
+        <div class="col-sm-3">
+          <%= item_cycle_count[0].item_quantity %>
+        </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "home", root_path %>
 
