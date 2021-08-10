@@ -1,28 +1,36 @@
 <h1> all items | current on-hands</h1>
 
-<div class="container">
-  <% @items.each do |item| %>
-<div class="row">
-  <div class="col-sm-3">
-    <%= link_to item.name, item_path(item) %>
-  </div>
-  <div class="col-sm-3">
-    <%= item.vendor.name %>
-  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+      <th scope="col">Vendor</th>
+      <th scope="col">Update Date</th>
+      <th scope="col">Current On-Hand</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @row = 0 %>
+        <% @items = @items.sort_by { |item| item.name } %>
+        <% @items.each do |item| %>
+    <tr>
+      <th scope="row"><%= @row += 1 %></th>
+         <td> <%= link_to item.name, item_path(item) %> </td>
+         <td> <%= item.vendor.name %> </td>
     <% @updated_at = [] %>
       <% item.item_cycle_counts.each do |item_cycle_count| %>
         <%  @updated_at.push(item_cycle_count.updated_at) %>
       <% end %>
-  <div class="col-sm-3">
-     last updated on:  <%= @updated_at.last %>
-  </div>
-  <div class="col-sm-3">
+
+        <td><%= @updated_at.last %></td>
+
     <% if item.item_cycle_counts.present?%>
-      <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %>
+        <td> <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %></td>
+    </tr>
     <% end %>
- </div>
- </div>
   <% end %>
-</div>
+  </tbody>
+</table>
 
 <%= link_to "home", root_path %>
