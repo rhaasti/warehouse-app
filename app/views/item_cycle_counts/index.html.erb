@@ -1,32 +1,68 @@
-<h1> end-of-month cycle counts </h1>
+ <h1> end-of-month cycle counts </h1>
+
+
+<!-- creating an array of each month -->
 
 <% months = ["January", "February", "March","April","May","June","July","August","September","October","November","December"] %>
 
+<!-- creating an empty hash -->
+
 <% @hash = {} %>
+
+<!-- looping through all item_cycle_count objects and
+  pushing them into the hash as keys, along with the item_cycle_count's
+updated_at month -->
 
 <% @item_cycle_counts.each do |item_cycle_count| %>
   <% @hash[item_cycle_count] = item_cycle_count.updated_at.strftime("%B") %>
 <% end %>
 
+<!-- now the hash contains every item_cycle_count object as keys,
+with the corresponding updated_at month as a value -->
 
-    <% months.each do |month| %>
-      <% item_cycle_counts_per_month = @hash.select { |key, value| value == month } %>
-        <% item_cycle_counts_per_month.each do |item_cycle_count| %>
-<div class="container">
-  <div class="row">
-        <div class="col-sm-3">
-          <%= month %>
-        </div>
-        <div class="col-sm-3">
-          <%= item_cycle_count[0].item.name %>
-        </div>
-        <div class="col-sm-3">
-          <%= item_cycle_count[0].item_quantity %>
-        </div>
-        <% end %>
-    <% end %>
-  </div>
-</div>
+<!-- creating the table and looping through the months array
+to generate a new column for each month -->
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Item</th>
+      <th scope="col">Vendor</th>
+      <% months.each do | month| %>
+      <th scope="col"> <%= month %> </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% @row = 0 %>
+        <% @items = @items.sort_by { |item| item.name } %>
+        <% @items.each do |item| %>
+    <tr>
+      <th scope="row"><%= @row += 1 %></th>
+         <td> <%= link_to item.name, item_path(item) %> </td>
+         <td> <%= item.vendor.name %> </td>
+
+      <% item.item_cycle_counts.each do |item_cycle_count| %>
+        <% months.each do |month| %>
+          <% item_cycle_counts_per_month = @hash.select { |key, value| value == month } %>
+          <% item_cycle_counts_per_item_and_month = item_cycle_counts_per_month.select { |key, value| key.item == item } %> </td>
+          <% if item_cycle_counts_per_item_and_month.keys.last.nil?%>
+            <td> - </td>
+            <% else %>
+          <td> <%= item_cycle_counts_per_item_and_month.keys.last.item_quantity %> </td>
+          <% end %>
+      <% end %>
+      <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
 
 <%= link_to "home", root_path %>
+
+
+
 
