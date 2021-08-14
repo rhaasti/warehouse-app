@@ -37,14 +37,20 @@ to generate a new column for each month -->
   <tbody>
   <% @row = 0 %>
         <% @items = @items.sort_by { |item| item.name } %>
+        <!-- iterating through each item -->
         <% @items.each do |item| %>
     <tr>
       <th scope="row"><%= @row += 1 %></th>
          <td> <%= link_to item.name, item_path(item) %> </td>
          <td> <%= item.vendor.name %> </td>
           <% months.each do |month| %>
+          <!-- iterating through each month, within each item -->
           <% item_cycle_counts_per_month = @hash.select { |key, value| value == month } %>
+          <!-- selecting the hash objects where their values equal the month, and
+            saving them to a variable -->
           <% item_cycle_counts_per_item_and_month = item_cycle_counts_per_month.select { |key, value| key.item == item } %>
+          <!-- selecting the hash objects from the above saved variable where their
+          item equals the key.item (which is an item_cycle_count object) -->
 
           <% if item_cycle_counts_per_item_and_month.keys.last.nil?%>
             <td> - </td>
