@@ -29,7 +29,7 @@ to generate a new column for each month -->
       <th scope="col">#</th>
       <th scope="col">Item</th>
       <th scope="col">Vendor</th>
-      <% months.each do | month| %>
+      <% months.each do |month| %>
       <th scope="col"> <%= month %> </th>
       <% end %>
     </tr>
@@ -42,17 +42,15 @@ to generate a new column for each month -->
       <th scope="row"><%= @row += 1 %></th>
          <td> <%= link_to item.name, item_path(item) %> </td>
          <td> <%= item.vendor.name %> </td>
-
-      <% item.item_cycle_counts.each do |item_cycle_count| %>
-        <% months.each do |month| %>
+          <% months.each do |month| %>
           <% item_cycle_counts_per_month = @hash.select { |key, value| value == month } %>
-          <% item_cycle_counts_per_item_and_month = item_cycle_counts_per_month.select { |key, value| key.item == item } %> </td>
+          <% item_cycle_counts_per_item_and_month = item_cycle_counts_per_month.select { |key, value| key.item == item } %>
+
           <% if item_cycle_counts_per_item_and_month.keys.last.nil?%>
             <td> - </td>
-            <% else %>
-          <td> <%= item_cycle_counts_per_item_and_month.keys.last.item_quantity %> </td>
+          <% else %>
+            <td> <%= item_cycle_counts_per_item_and_month.keys.last.item_quantity %> </td>
           <% end %>
-      <% end %>
       <% end %>
       <% end %>
     </tr>
