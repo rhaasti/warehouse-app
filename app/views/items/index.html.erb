@@ -8,6 +8,7 @@
       <th scope="col">Vendor</th>
       <th scope="col">Update Date</th>
       <th scope="col">Current On-Hand</th>
+      <th scope="col">Current Value</th>
     </tr>
   </thead>
   <tbody>
@@ -26,7 +27,10 @@
         <td><%= @updated_at.last %></td>
 
     <% if item.item_cycle_counts.present?%>
-        <td> <%= item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %></td>
+        <td> <%= current_item_quantity = item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %></td>
+        <td> $<%= (current_item_quantity * item.value) %></td>
+      <% else %>
+        <td> - <td>
     </tr>
     <% end %>
   <% end %>

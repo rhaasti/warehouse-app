@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_192953) do
+ActiveRecord::Schema.define(version: 2021_08_14_162017) do
 
   create_table "cycle_counts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
-  #you need the item_cycle_counts table, as it's the join table between [items] and [cycle counts]
-  #without item_cycle_counts, you're only able to add one item to a cycle count.
 
   create_table "item_cycle_counts", force: :cascade do |t|
     t.integer "item_quantity"
@@ -43,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_07_06_192953) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "minimum"
     t.integer "vendor_id", null: false
+    t.decimal "value"
     t.index ["vendor_id"], name: "index_items_on_vendor_id"
   end
 
