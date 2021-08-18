@@ -36,6 +36,8 @@ to generate a new column for each month -->
   </thead>
   <tbody>
   <% @row = 0 %>
+  <% @total_month_value_hash ={}  %>
+
         <% @items = @items.sort_by { |item| item.name } %>
         <!-- iterating through each item -->
         <% @items.each do |item| %>
@@ -51,15 +53,29 @@ to generate a new column for each month -->
           <% item_cycle_counts_per_item_and_month = item_cycle_counts_per_month.select { |key, value| key.item == item } %>
           <!-- selecting the hash objects from the above saved variable where their
           item equals the item found in the key (which is an item_cycle_count object) -->
-
           <% if item_cycle_counts_per_item_and_month.keys.last.nil?%>
             <td> - </td>
           <% else %>
-            <td> <%= item_cycle_counts_per_item_and_month.keys.last.item_quantity %> </td>
+            <td>
+              <%= item_cycle_counts_per_item_and_month.keys.last.item_quantity %>
+              <%= item_cycle_counts_per_item_and_month.keys.last.item.count_type.pluralize(item_cycle_counts_per_item_and_month.keys.last.item_quantity) %>
+            </td>
+                 <% @total_month_value_hash[item_cycle_counts_per_item_and_month.keys.last.updated_at] = item_cycle_counts_per_item_and_month.keys.last.item_quantity * item_cycle_counts_per_item_and_month.keys.last.item.value%>
+                 <% end %>
           <% end %>
       <% end %>
-      <% end %>
     </tr>
+    <tr>
+      <th scope>total</th>
+      <td></td>
+      <td></td>
+  <% months.each do |month| %>
+      <td> <%= number_to_currency(@total_month_value_hash.select { |key,value| key.strftime("%B") == month}.values.sum, precision: 0)%> </td>
+    <% end %>
+
+
+    </tr>
+
   </tbody>
 </table>
 
