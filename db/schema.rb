@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_162017) do
+ActiveRecord::Schema.define(version: 2021_08_20_021514) do
 
   create_table "cycle_counts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 2021_08_14_162017) do
     t.integer "cycle_count_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["cycle_count_id"], name: "index_item_cycle_counts_on_cycle_count_id"
     t.index ["item_id"], name: "index_item_cycle_counts_on_item_id"
+    t.index ["user_id"], name: "index_item_cycle_counts_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -41,12 +43,12 @@ ActiveRecord::Schema.define(version: 2021_08_14_162017) do
     t.integer "minimum"
     t.integer "vendor_id", null: false
     t.decimal "value"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
     t.index ["vendor_id"], name: "index_items_on_vendor_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -66,5 +68,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_162017) do
 
   add_foreign_key "item_cycle_counts", "cycle_counts"
   add_foreign_key "item_cycle_counts", "items"
+  add_foreign_key "item_cycle_counts", "users"
+  add_foreign_key "items", "users"
   add_foreign_key "items", "vendors"
 end
