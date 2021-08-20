@@ -1,5 +1,6 @@
 <h1> <%= @item.name %> </h1>
 <h2> <%= @item.vendor.name %> </h2>
+<p> created by: <%= @item.user.email %> </p>
 
 <% @updated_at = [] %>
       <% @item.item_cycle_counts.each do |item_cycle_count| %>
