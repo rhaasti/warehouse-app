@@ -1,6 +1,9 @@
 <h1> <%= @item.name %> </h1>
 <h2> <%= @item.vendor.name %> </h2>
-<p> created by: <%= @item.user.email %> </p>
+<p> created by: <%= @item.user.email.split("@")[0] %> </p>
+<p> value: <%= number_to_currency(@item.value, precision:2) %> per <%= @item.purchase_type %></p>
+<p> purchase as: <%= @item.purchase_type.pluralize %>
+<p> count as: <%= @item.count_type.pluralize %>, which is <%= @item.count_measurement %> <%= @item.purchase_type.pluralize %>
 
 <% @updated_at = [] %>
       <% @item.item_cycle_counts.each do |item_cycle_count| %>
@@ -14,16 +17,16 @@
     <% if @item.item_cycle_counts.present?%>
   <p>
     current on-hand: <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <br>
-    updated on: <%= @updated_at.last   %>
+    last updated on: <%= @updated_at.last.strftime("%a, %b %-d %Y") %> @ <%=@updated_at.last.strftime("%H:%M") %> UTC
     <% @item.item_cycle_counts.each do |item_cycle_count| %>
   </p>
   <p>
-      <%= item_cycle_count.item_quantity %>
-      <%= item_cycle_count.updated_at.strftime("%B") %>
+      <%= item_cycle_count.user.email.split("@")[0] %>
+      counted <%= item_cycle_count.item_quantity %>
+      on <%= item_cycle_count.updated_at.strftime("%a, %b %-d %Y") %> @ <%=item_cycle_count.updated_at.strftime("%H:%M") %> UTC
     <% end %>
   </p>
     <% end %>
-      value: <%= number_to_currency(@item.value, precision:2) %>
   </div>
 
 <%= link_to "all items", items_path %>

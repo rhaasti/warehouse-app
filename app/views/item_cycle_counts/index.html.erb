@@ -60,7 +60,7 @@ to generate a new column for each month -->
               <%= item_cycle_counts_per_item_and_month.keys.last.item_quantity %>
               <%= item_cycle_counts_per_item_and_month.keys.last.item.count_type.pluralize(item_cycle_counts_per_item_and_month.keys.last.item_quantity) %>
             </td>
-                 <% @total_month_value_hash[item_cycle_counts_per_item_and_month.keys.last.updated_at] = item_cycle_counts_per_item_and_month.keys.last.item_quantity * item_cycle_counts_per_item_and_month.keys.last.item.value%>
+                 <% @total_month_value_hash[item_cycle_counts_per_item_and_month.keys.last.updated_at] = item_cycle_counts_per_item_and_month.keys.last.item_quantity * (item_cycle_counts_per_item_and_month.keys.last.item.value * item_cycle_counts_per_item_and_month.keys.last.item.count_measurement)%>
                  <% end %>
           <% end %>
       <% end %>
