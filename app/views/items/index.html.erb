@@ -7,6 +7,7 @@
       <th scope="col">Item</th>
       <th scope="col">Vendor</th>
       <th scope="col">Updated On</th>
+      <th scope="col">Delta</th>
       <th scope="col">Current On-Hand</th>
       <th scope="col">Current Value</th>
     </tr>
@@ -30,8 +31,16 @@
         <td> - </td>
       <% end %>
 
+      <% if (Date.today - @updated_at.last.to_date).to_i == 1 %>
+          <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
+        <% elsif (Date.today - @updated_at.last.to_date).to_i > 0 %>
+          <td> <%= (Date.today - @updated_at.last.to_date).to_i %> days ago </td>
+        <% else %>
+          <td> today </td>
+      <% end %>
+
     <% if item.item_cycle_counts.present?%>
-        <td> <%= current_item_quantity = item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %></td>
+        <td> <%= current_item_quantity = item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <%= item.count_type.pluralize(current_item_quantity) %></td>
         <td> <%= number_to_currency(current_item_quantity * (item.value * item.count_measurement), precision: 0) %></td>
       <% else %>
         <td> - </td>

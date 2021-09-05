@@ -44,7 +44,7 @@ to generate a new column for each month -->
     <tr>
       <th scope="row"><%= @row += 1 %></th>
          <td> <%= link_to item.name, item_path(item) %> </td>
-         <td> <%= item.vendor.name %> </td>
+         <td> <%= link_to item.vendor.name, vendor_path(item.vendor) %> </td>
           <% months.each do |month| %>
           <!-- iterating through each month, within each item -->
           <% item_cycle_counts_per_month = @hash.select { |key, value| value == month } %>
@@ -78,8 +78,6 @@ to generate a new column for each month -->
 
   </tbody>
 </table>
-
-
 
 <%= link_to "home", root_path %>
 
