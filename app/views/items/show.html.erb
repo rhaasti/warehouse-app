@@ -25,7 +25,14 @@
     <% if @item.item_cycle_counts.present?%>
 
   <p class="card-text">  current on-hand: <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> </p>
-  <p class="card-text"> last updated on: <%= @updated_at.last.strftime("%a, %b %-d %Y") %> @ <%=@updated_at.last.strftime("%H:%M") %> UTC </p>
+  <p class="card-text"> updated:       <% if (Date.today - @updated_at.last.to_date).to_i == 1 %>
+          <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
+        <% elsif (Date.today - @updated_at.last.to_date).to_i > 0 %>
+          <td> <%= (Date.today - @updated_at.last.to_date).to_i %> days ago </td>
+        <% else %>
+          <td> today </td>
+      <% end %>
+  </p>
     <% @item.item_cycle_counts.each do |item_cycle_count| %>
 
     </div>
