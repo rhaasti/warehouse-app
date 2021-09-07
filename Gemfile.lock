@@ -89,6 +89,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    jquery (0.0.1)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -217,6 +218,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   jbuilder (~> 2.7)
+  jquery
   listen (~> 3.2)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.7)
