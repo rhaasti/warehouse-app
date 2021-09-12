@@ -1,5 +1,71 @@
 
-<% @all_items.each do |item| %>
-  <%= item.item.name %>
-  <%= item.item_quantity %>
+<% @all_items_array = [] %>
+<% @all_selected_items_array = [] %>
+<% @all_items_array_ids = [] %>
+<% @all_selected_items_array_ids = [] %>
+
+<% @all_items.sort_by { |item| item.item.name}.each do |item| %>
+  <% @all_selected_items_array.push(item) %>
 <% end %>
+
+<% @items.sort_by { |item| item.name }.each do |item| %>
+  <% @all_items_array.push(item) %>
+<% end %>
+
+<% @all_items_array.each do |item| %>
+  <% @all_items_array_ids.push(item.id) %>
+<% end %>
+
+ <% @all_selected_items_array.each do |selected_item| %>
+  <% @all_selected_items_array_ids.push(selected_item.item.id) %>
+<% end %>
+
+<% @all_selected_items_array_ids.uniq %>
+
+<% @all_selected_items_array_ids.uniq.each do |item| %>
+  <% @all_items_array_ids.delete(item) %>
+<% end %>
+
+<% @remaining_item_ids = @all_items_array_ids %>
+
+ <div class="container">
+  <div class="row">
+
+  <% @remaining_item_ids.each do |remaining_item| %>
+    <% @final_item_list = @all_items_array.filter { |item| item.id == remaining_item} %>
+    <% @final_item_list.each do |item| %>
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= item.name %></li>
+            </ul>
+          </div>
+        </div>
+  <% end %>
+  <% end %>
+  </div>
+</div>
+
+<%= render "item_cycle_counts/new" %>
+
+ <div class="container">
+  <div class="row">
+
+  <% @all_selected_items_array.each do |selected_item| %>
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <%= selected_item.item.name %>,
+                <%= selected_item.item_quantity %>
+                <%= selected_item.item.count_type.pluralize %>
+              </li>
+            </ul>
+          </div>
+        </div>
+  <% end %>
+  </div>
+</div>
+
+<!-- # ^ here you must be comparing item.id, because you're actually
+# comparing an item_cycle_count to an item. -->
