@@ -20,10 +20,7 @@
   <% @all_selected_items_array_ids.push(selected_item.item.id) %>
 <% end %>
 
-
-  all selected items:
-<%= @all_selected_items_array_ids.uniq %>
-</p>
+<% @all_selected_items_array_ids.uniq %>
 
 <% @all_selected_items_array_ids.uniq.each do |item| %>
   <% @all_items_array_ids.delete(item) %>
@@ -39,7 +36,6 @@
     <% @final_item_list.each do |item| %>
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
-
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><%= item.name %></li>
             </ul>
@@ -52,7 +48,24 @@
 
 <%= render "item_cycle_counts/new" %>
 
+ <div class="container">
+  <div class="row">
 
+  <% @all_selected_items_array.each do |selected_item| %>
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <%= selected_item.item.name %>,
+                <%= selected_item.item_quantity %>
+                <%= selected_item.item.count_type.pluralize %>
+              </li>
+            </ul>
+          </div>
+        </div>
+  <% end %>
+  </div>
+</div>
 
 <!-- # ^ here you must be comparing item.id, because you're actually
 # comparing an item_cycle_count to an item. -->
