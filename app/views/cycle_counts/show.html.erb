@@ -58,7 +58,7 @@
               <li class="list-group-item">
                 <%= selected_item.item.name %>,
                 <%= selected_item.item_quantity %>
-                <%= selected_item.item.count_type.pluralize %>
+                <%= selected_item.item.count_type.pluralize(selected_item.item_quantity) %>
               </li>
             </ul>
           </div>
