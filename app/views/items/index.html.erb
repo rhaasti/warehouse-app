@@ -10,6 +10,7 @@
       <th scope="col">Delta</th>
       <th scope="col">Current On-Hand</th>
       <th scope="col">Current Value</th>
+      <th scope="col">Current Need</th>
     </tr>
   </thead>
   <tbody>
@@ -51,8 +52,12 @@
         <td> - </td>
     </tr>
     <% end %>
+       <% need = item.minimum - current_item_quantity %>
+        <% if need >= 0 %>
+          <td><%= need %> <%= item.count_type.pluralize(need) %></td>
+        <% else %>
+          <td> none </td>
+        <% end %>
   <% end %>
   </tbody>
 </table>
-
-<%= link_to "home", root_path %>
