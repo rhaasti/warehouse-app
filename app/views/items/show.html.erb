@@ -11,7 +11,9 @@
 
       <p class="card-text"> value: <%= number_to_currency(@item.value, precision:2) %> per <%= @item.purchase_type %> </p>
       <p class="card-text"> purchase as: <%= @item.purchase_type.pluralize %> </p>
-      <p class="card-text"> count as: <%= @item.count_type.pluralize %>, which contain <%= @item.count_measurement %> <%= @item.purchase_type.pluralize %> </p>
+      <p class="card-text"> count as: <%= @item.count_type.pluralize %>, which contain <%= @item.count_measurement %> individual <%= @item.name.pluralize %> </p>
+      <p class="card-text"> minimum: <%= @item.minimum %> <%= @item.count_type.pluralize %></p>
+
 
 
 
@@ -25,7 +27,7 @@
     <% if @item.item_cycle_counts.present?%>
 
   <p class="card-text">  current on-hand: <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> </p>
-  <p class="card-text"> updated:       <% if (Date.today - @updated_at.last.to_date).to_i == 1 %>
+  <p class="card-text"> last updated:       <% if (Date.today - @updated_at.last.to_date).to_i == 1 %>
           <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
         <% elsif (Date.today - @updated_at.last.to_date).to_i > 0 %>
           <td> <%= (Date.today - @updated_at.last.to_date).to_i %> days ago </td>
@@ -50,6 +52,10 @@
     </ul>
   </div>
     <% end %>
+
+    <% else %>
+  <p class="card-text"> current on-hand: unknown </p>
+  <p class="card-text"> last updated: never </p>
     <% end %>
   </div>
 
