@@ -32,14 +32,14 @@
   <div class="row">
 
   <% @remaining_item_ids.each do |remaining_item| %>
-    <% @final_item_list = @all_items_array.filter { |item| item.id == remaining_item} %>
+    <% @final_item_list = @all_items_array.filter { |item| item.id == remaining_item } %>
     <% @final_item_list.each do |item| %>
       <div class="col-sm-3">
         <div class="card" style="width: 18rem;">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <%= item.name %>,
-                count as <%= item.count_type.pluralize %>
+                <%= item.name %>, count as
+                <%= item.count_type.pluralize %>
               </li>
             </ul>
           </div>

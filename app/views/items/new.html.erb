@@ -3,10 +3,10 @@
     <%= f.input :name, label: "item name" %>
     <%= f.association :vendor, label: "vendor" %>
     <%= f.input :purchase_link, label: "purchase link" %>
+    <%= f.input :purchase_type, label: "purchase type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you purchase this item?"  %>
+    <%= f.input :value, label: "value", hint: "value of one purchase unit" %>
     <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you count this item?" %>
     <%= f.input :count_measurement, label: "count_measurement", hint: "how many eaches are contained in one unit of the count type?" %>
-    <%= f.input :value, label: "value", hint: "value of one each" %>
-    <%= f.input :purchase_type, label: "purchase type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you purchase this item?"  %>
     <%= f.input :minimum, label: "minimum", hint: "minimum per count type" %>
     <%= f.input :inshape_stock_id, label: "inshape stock id" %>
     <%= f.input :vendor_stock_id, label: "vendor stock id"%>
