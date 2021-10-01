@@ -21,6 +21,8 @@ gem 'simple_form'
 gem 'devise'
 gem 'jquery'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
