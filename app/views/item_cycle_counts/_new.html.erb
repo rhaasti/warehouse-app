@@ -1,13 +1,10 @@
 <h2> add items to your cycle count </h2>
 
 <%= simple_form_for [@cycle_count, @item_cycle_count] do |f| %>
-  <%= f.association :item, label: "item name" %>
+  <%= f.association :item, label: "item name"%>
   <%= f.input :item_quantity, label: "quantity" %>
   <%= f.button :button, "add item" %>
 <% end %>
-
-<%= link_to "view all cycle counts", cycle_counts_path %>
-<%= link_to "home", root_path %>
 
 
 

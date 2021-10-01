@@ -1,15 +1,19 @@
-<%= simple_form_for(@item) do |f| %>
-  <%= f.input :name, label: "item name" %>
-  <%= f.association :vendor, label: "vendor" %>
-  <%= f.input :value, label: "value" %>
-  <%= f.input :inshape_stock_id, label: "inshape_stock_id" %>
-  <%= f.input :vendor_stock_id, label: "vendor stock id"%>
-  <%= f.input :purchase_link, label: "purchase_link" %>
-  <%= f.input :count_measurement, label: "count_measurement", hint: "how many eaches are in the count measurement" %>
-  <%= f.input :count_type, label: "count_type", collection: ["box", "roll", "each", "pallet"] %>
-  <%= f.input :purchase_type, label: "purchase_type", collection: ["box", "roll", "each", "pallet"]  %>
-  <%= f.input :minimum, label: "minimum" %>
-  <%= f.button :submit %>
-<% end %>
+
+  <%= simple_form_for(@item) do |f| %>
+    <%= f.input :name, label: "item name" %>
+    <%= f.association :vendor, label: "vendor" %>
+    <%= f.input :purchase_link, label: "purchase link" %>
+    <%= f.input :purchase_type, label: "purchase type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you purchase this item?"  %>
+    <%= f.input :value, label: "value", hint: "value of one purchase unit" %>
+    <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you count this item?" %>
+    <%= f.input :count_measurement, label: "count_measurement", hint: "how many eaches are contained in one unit of the count type?" %>
+    <%= f.input :minimum, label: "minimum", hint: "minimum per count type" %>
+    <%= f.input :inshape_stock_id, label: "inshape stock id" %>
+    <%= f.input :vendor_stock_id, label: "vendor stock id"%>
+    <%= f.button :submit, class: "btn-primary" %>
+  <% end %>
+
+  <!-- this page could use a confirmation prompt "create new item 'blue opaque dice,
+  which you count as boxes, each containing 25 units, valued at $5.32 each?'" -->
 
 
