@@ -21,6 +21,8 @@ class ItemCycleCountsController < ApplicationController
     @item_cycle_count.cycle_count = @cycle_count
     @item_cycle_count.user = current_user
     @item_cycle_count.save
+    redirect_to cycle_count_path(@cycle_count)
+
   end
 
   private
