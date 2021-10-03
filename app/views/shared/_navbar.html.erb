@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="<%= root_path %>">home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,29 +6,29 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<%= new_vendor_path %>">create new vendor <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%= new_vendor_path %>">| create new vendor<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= vendors_path %>">all vendors</a>
+        <a class="nav-link" href="<%= vendors_path %>">| all vendors</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= new_item_path %>">create new item</a>
+        <a class="nav-link" href="<%= new_item_path %>">| create new item</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= items_path %>">all items</a>
+        <a class="nav-link" href="<%= items_path %>">| all items</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= new_cycle_count_path %>">create new cycle count</a>
+        <a class="nav-link" href="<%= new_cycle_count_path %>">| create new cycle count</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%= item_cycle_counts_path %>">all end-of-month cycle counts</a>
+        <a class="nav-link" href="<%= item_cycle_counts_path %>">| all end-of-month cycle counts |</a>
       </li>
     </ul>
   </div>
   <% if current_user.nil? %>
     log in
   <% else %>
-  logged in as <%= current_user.email.split("@")[0] %>
+    logged in as <%= current_user.email.split("@")[0] %>
   <% end %>
   <%= link_to "sign out", destroy_user_session_path, method: :delete %>
 </nav>
