@@ -1,5 +1,7 @@
-<%= simple_form_for(@cycle_count) do |f| %>
-  <%= f.submit "begin new cycle count" %>
-<% end %>
+<div class="cycle-count" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path("Warehouse_v5g6tp.jpg") %>');">
+  <%= simple_form_for(@cycle_count) do |f| %>
+    <%= f.submit "begin new cycle count" %>
+  <% end %>
+</div>
 
 
