@@ -4,8 +4,14 @@
 
 .table {
   font-family: monospace;
+  color: black;
 }
 
 h3 {
   font-family: monospace;
+  color: black !important;
+}
+
+td {
+  cursor: pointer;
 }

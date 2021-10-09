@@ -1,87 +1,85 @@
-<div class="background" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path("Warehouse_v5g6tp.jpg") %>');">
-
-  <h3> add items to your cycle count: </h3>
+<h3> add items to your cycle count: </h3>
 
 
-  <%= render "item_cycle_counts/new" %>
+<%= render "item_cycle_counts/new" %>
 
 
-  <h3> remaining items: </h3>
+<h3> remaining items: </h3>
 
 
-  <% @all_items_array = [] %>
-  <% @all_selected_items_array = [] %>
-  <% @all_items_array_ids = [] %>
-  <% @all_selected_items_array_ids = [] %>
+<% @all_items_array = [] %>
+<% @all_selected_items_array = [] %>
+<% @all_items_array_ids = [] %>
+<% @all_selected_items_array_ids = [] %>
 
-  <% @all_items.sort_by { |item| item.item.name}.each do |item| %>
-    <% @all_selected_items_array.push(item) %>
-  <% end %>
+<% @all_items.sort_by { |item| item.item.name}.each do |item| %>
+  <% @all_selected_items_array.push(item) %>
+<% end %>
 
-  <% @items.sort_by { |item| item.name }.each do |item| %>
-    <% @all_items_array.push(item) %>
-  <% end %>
+<% @items.sort_by { |item| item.name }.each do |item| %>
+  <% @all_items_array.push(item) %>
+<% end %>
 
-  <% @all_items_array.each do |item| %>
-    <% @all_items_array_ids.push(item.id) %>
-  <% end %>
+<% @all_items_array.each do |item| %>
+  <% @all_items_array_ids.push(item.id) %>
+<% end %>
 
-   <% @all_selected_items_array.each do |selected_item| %>
-    <% @all_selected_items_array_ids.push(selected_item.item.id) %>
-  <% end %>
+ <% @all_selected_items_array.each do |selected_item| %>
+  <% @all_selected_items_array_ids.push(selected_item.item.id) %>
+<% end %>
 
-  <% @all_selected_items_array_ids.uniq %>
+<% @all_selected_items_array_ids.uniq %>
 
-  <% @all_selected_items_array_ids.uniq.each do |item| %>
-    <% @all_items_array_ids.delete(item) %>
-  <% end %>
+<% @all_selected_items_array_ids.uniq.each do |item| %>
+  <% @all_items_array_ids.delete(item) %>
+<% end %>
 
-  <% @remaining_item_ids = @all_items_array_ids %>
+<% @remaining_item_ids = @all_items_array_ids %>
 
-   <div class="container">
-    <div class="row">
+ <div class="container">
+  <div class="row">
 
-    <% @remaining_item_ids.each do |remaining_item| %>
-      <% @final_item_list = @all_items_array.filter { |item| item.id == remaining_item } %>
-      <% @final_item_list.each do |item| %>
-        <div class="col-sm-4">
-          <div class="card" style="width: 22rem;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <%= item.name %>, count as
-                  <%= item.count_type.pluralize %>
-                </li>
-              </ul>
-            </div>
+  <% @remaining_item_ids.each do |remaining_item| %>
+    <% @final_item_list = @all_items_array.filter { |item| item.id == remaining_item } %>
+    <% @final_item_list.each do |item| %>
+      <div class="col-sm-4">
+        <div class="card" style="width: 22rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <%= item.name %>, count as
+                <%= item.count_type.pluralize %>
+              </li>
+            </ul>
           </div>
-    <% end %>
-    <% end %>
-    </div>
-  </div>
-
-
-  <h3> items in your cycle count: </h3>
-
-
-   <div class="container">
-    <div class="row">
-
-    <% @all_selected_items_array.each do |selected_item| %>
-        <div class="col-sm-4">
-          <div class="card" style="width: 22rem;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <%= selected_item.item.name %>,
-                  <%= selected_item.item_quantity %>
-                  <%= selected_item.item.count_type.pluralize(selected_item.item_quantity) %>
-                </li>
-              </ul>
-            </div>
-          </div>
-    <% end %>
-    </div>
+        </div>
+  <% end %>
+  <% end %>
   </div>
 </div>
 
-  <!-- # ^ here you must be comparing item.id, because you're actually
-  # comparing an item_cycle_count to an item. -->
+
+<h3> items in your cycle count: </h3>
+
+
+ <div class="container">
+  <div class="row">
+
+  <% @all_selected_items_array.each do |selected_item| %>
+      <div class="col-sm-4">
+        <div class="card" style="width: 22rem;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <%= selected_item.item.name %>,
+                <%= selected_item.item_quantity %>
+                <%= selected_item.item.count_type.pluralize(selected_item.item_quantity) %>
+              </li>
+            </ul>
+          </div>
+        </div>
+  <% end %>
+  </div>
+</div>
+
+
+<!-- # ^ here you must be comparing item.id, because you're actually
+# comparing an item_cycle_count to an item. -->
