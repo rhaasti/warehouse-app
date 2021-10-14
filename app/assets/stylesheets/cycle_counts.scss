@@ -8,7 +8,6 @@
   display: flex;
   justify-content: center;
   padding-top: 30px;
-  font-family: monospace;
   font-weight: bold;
   font-size: 24px;
   position: fixed;
@@ -21,5 +20,6 @@
 
 
 h3 {
-  color:white;
+  color:white !important;
+  font-weight: bold;
 }
