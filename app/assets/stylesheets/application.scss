@@ -1,3 +1,18 @@
 @import "bootstrap/scss/bootstrap";
 @import "components/index";
 @import "font-awesome";
+
+* {
+  font-family: monospace;
+ }
+
+input {
+        &:-webkit-autofill::first-line,
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        font-family: monospace !important;
+      }
+  }
+

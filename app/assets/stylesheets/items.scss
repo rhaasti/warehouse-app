@@ -3,15 +3,25 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .table {
-  font-family: monospace;
   color: black;
 }
 
 h3 {
-  font-family: monospace;
   color: black !important;
 }
 
 td {
   cursor: pointer;
+}
+
+.history {
+  display: flex;
+  justify-content: center;
+  padding-top: 450px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  width: cover;
 }
