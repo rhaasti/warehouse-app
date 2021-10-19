@@ -53,12 +53,16 @@
         <td> - </td>
     </tr>
     <% end %>
+      <% if item.item_cycle_counts.present? %>
        <% need = item.minimum - current_item_quantity %>
         <% if need > 0 %>
           <td><%= need %> <%= item.count_type.pluralize(need) %></td>
         <% else %>
           <td> - </td>
         <% end %>
-  <% end %>
+      <% else %>
+          <td> - </td>
+        <% end %>
+      <% end %>
   </tbody>
 </table>
