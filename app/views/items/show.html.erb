@@ -34,7 +34,7 @@
 
 <div class="container d-flex justify-content-start"  style="margin-top: -60px;">
   <div class="row">
-    <div class="flex-column">
+    <div class="flex-column"  style="width: 1000px;">
       <div class="item-category">  current on-hand: </div> <div class="item-info"> <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <%= @item.count_type.pluralize(@item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity) %> </div>  </br>
       <div class="item-category"> last updated: </div> <div class="item-info"> <% if (Date.today - @updated_at.last.to_date).to_i == 1 %> </div> </br>
               <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
@@ -46,10 +46,10 @@
       </div>
     </div>
   </div>
+
+
+    <div class="history">
         <% @item.item_cycle_counts.reverse.each do |item_cycle_count| %>
-
-
-    <div class="d-flex flex-column" style="margin-top: 1000px;">
       <div class="card mb-3" style="width: 20rem;">
         <div class="card-header">
           <%= item_cycle_count.updated_at.strftime("%a, %b %-d %Y") %> @ <%=item_cycle_count.updated_at.strftime("%H:%M") %> UTC
@@ -61,17 +61,18 @@
           </li>
         </ul>
       </div>
-    </div>
+
 
         <% end %>
+      </div>
 
         <% else %>
 
-  <div class="container d-flex justify-content-start"  style="margin-top: -60px;">
-        <div class="row">
-          <div class="flex-column">
-            <div class="item-category"> current on-hand: </div> <div class="item-info"> unknown </div> </br>
-            <div class="item-category"> last updated: </div> <div class="item-info"> never </div>
+<div class="container d-flex justify-content-start"  style="margin-top: -60px;">
+  <div class="row">
+      <div class="flex-column" style="width: 1000px;">
+        <div class="item-category"> current on-hand: </div> <div class="item-info"> unknown </div> </br>
+        <div class="item-category"> last updated: </div> <div class="item-info"> never </div>
         <% end %>
       </div>
   </div>
