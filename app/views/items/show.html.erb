@@ -1,57 +1,79 @@
-<div class="details">
-  <div class="col-sm-5">
+<div class="background" style="background-image: url('<%= cl_image_path("Warehouse_v5g6tp.jpg", :effect=>"art:al_dente", :opacity=>70) %>');">
 
-  <div class="card border-light mb-3" style="max-width: 30rem;">
+<div class="alt-h2">
+  <h2> item detail | <%= @item.name %> </h2>
+</div>
 
-    <h3 class="card-header"> <%= @item.name %> </h3>
+  <div class="container d-flex justify-content-start" style="margin-top: 50px;">
+        <div class="row">
+          <div class="flex-column">
+            <div class="item-category"> supplier:  </div> <div class="item-info"> <%= @item.vendor.name %> </div> </br>
+            <div class="item-category"> value:  </div> <div class="item-info"> <%= number_to_currency(@item.value, precision:2) %> per <%= @item.purchase_type %> </div> </br>
+            <div class="item-category"> purchase as:  </div> <div class="item-info"> <%= @item.purchase_type.pluralize %> </div> </br>
+          </div>
+        </div>
+  </div>
 
-    <div class="card-body">
+  <div class="container d-flex justify-content-end" style="margin-top: -160px;">
+        <div class="row">
+          <div class="flex-column">
+            <div class="item-category"> count as:  </div> <div class="item-info"> <%= @item.count_type.pluralize %>, which contain <%= @item.count_measurement %> individual <%= @item.name.pluralize(@item.count_measurement) %> </div> </br>
+            <div class="item-category"> minimum:  </div> <div class="item-info"> <%= @item.minimum %> <%= @item.count_type.pluralize %> </div> </br>
+            <div class="item-category"> purchase link:  </div> <div class="item-info"> <%= @item.purchase_link %> </div> </br>
+            <div class="item-category"> supplier stock ID:  </div> <div class="item-info"> <%= @item.vendor_stock_id %> </div> </br>
+        </div>
+      </div>
+  </div>
 
-        <h5 class="card-title"> supplier: <%= @item.vendor.name %> </h5>
-
-        <p class="card-text"> value: <%= number_to_currency(@item.value, precision:2) %> per <%= @item.purchase_type %> </p>
-        <p class="card-text"> purchase as: <%= @item.purchase_type.pluralize %> </p>
-        <p class="card-text"> count as: <%= @item.count_type.pluralize %>, which contain <%= @item.count_measurement %> individual <%= @item.name.pluralize(@item.count_measurement) %> </p>
-        <p class="card-text"> minimum: <%= @item.minimum %> <%= @item.count_type.pluralize %></p>
-
-<% @updated_at = [] %>
-      <% @item.item_cycle_counts.each do |item_cycle_count| %>
-        <%  @updated_at.push(item_cycle_count.updated_at) %>
-      <% end %>
-
-    <% if @item.item_cycle_counts.present?%>
-
-    <p class="card-text">  current on-hand: <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <%= @item.count_type.pluralize(@item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity) %></p>
-    <p class="card-text"> last updated:     <% if (Date.today - @updated_at.last.to_date).to_i == 1 %>
-            <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
-          <% elsif (Date.today - @updated_at.last.to_date).to_i > 0 %>
-            <td> <%= (Date.today - @updated_at.last.to_date).to_i %> days ago </td>
-          <% else %>
-            <td> today </td>
+  <% @updated_at = [] %>
+        <% @item.item_cycle_counts.each do |item_cycle_count| %>
+          <%  @updated_at.push(item_cycle_count.updated_at) %>
         <% end %>
-    </p>
-      <% @item.item_cycle_counts.reverse.each do |item_cycle_count| %>
 
+      <% if @item.item_cycle_counts.present?%>
+
+<div class="container d-flex justify-content-start"  style="margin-top: -60px;">
+  <div class="row">
+    <div class="flex-column"  style="width: 1000px;">
+      <div class="item-category">  current on-hand: </div> <div class="item-info"> <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <%= @item.count_type.pluralize(@item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity) %> </div>  </br>
+      <div class="item-category"> last updated: </div> <div class="item-info"> <% if (Date.today - @updated_at.last.to_date).to_i == 1 %> </div> </br>
+              <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
+            <% elsif (Date.today - @updated_at.last.to_date).to_i > 0 %>
+              <td> <%= (Date.today - @updated_at.last.to_date).to_i %> days ago </td>
+            <% else %>
+              <td> today </td>
+          <% end %>
       </div>
     </div>
   </div>
-</div>
-<div class="history">
-  <div class="col-sm-3">
-    <div class="card mb-3" style="width: 18rem;">
-      <div class="card-header"><%= item_cycle_count.updated_at.strftime("%a, %b %-d %Y") %> @ <%=item_cycle_count.updated_at.strftime("%H:%M") %> UTC</div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-            <%= item_cycle_count.user.email.split("@")[0] %>
-            counted <%= item_cycle_count.item_quantity %> <%= item_cycle_count.item.count_type.pluralize(item_cycle_count.item_quantity) %>
-        </li>
-      </ul>
-    </div>
-      <% end %>
 
-      <% else %>
-    <p class="card-text"> current on-hand: unknown </p>
-    <p class="card-text"> last updated: never </p>
-      <% end %>
-    </div>
+
+    <div class="history">
+        <% @item.item_cycle_counts.reverse.each do |item_cycle_count| %>
+      <div class="card mb-3" style="width: 20rem;">
+        <div class="card-header">
+          <%= item_cycle_count.updated_at.strftime("%a, %b %-d %Y") %> @ <%=item_cycle_count.updated_at.strftime("%H:%M") %> UTC
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+              <%= item_cycle_count.user.email.split("@")[0] %>
+              counted <%= item_cycle_count.item_quantity %> <%= item_cycle_count.item.count_type.pluralize(item_cycle_count.item_quantity) %>
+          </li>
+        </ul>
+      </div>
+
+
+        <% end %>
+      </div>
+
+        <% else %>
+
+<div class="container d-flex justify-content-start"  style="margin-top: -60px;">
+  <div class="row">
+      <div class="flex-column" style="width: 1000px;">
+        <div class="item-category"> current on-hand: </div> <div class="item-info"> unknown </div> </br>
+        <div class="item-category"> last updated: </div> <div class="item-info"> never </div>
+        <% end %>
+      </div>
+  </div>
 </div>

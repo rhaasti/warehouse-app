@@ -10,18 +10,34 @@ h3 {
   color: black !important;
 }
 
+.alt-h2 h2 {
+  color: white !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
+}
+
 td {
   cursor: pointer;
 }
 
 .history {
-  display: flex;
-  justify-content: center;
-  padding-top: 450px;
+  margin-top: 200px;
+  margin-left: -650px;
 }
 
-.details {
-  display: flex;
-  justify-content: center;
-  width: cover;
+.item-category {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 13px;
+  background-color: white;
+  color: black;
+}
+
+.item-info {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 13px;
+  background-color: #343a40;
+  color: white;
 }
