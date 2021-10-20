@@ -5,38 +5,25 @@
 </div>
 
   <div class="container d-flex justify-content-start" style="margin-top: 50px;">
-
         <div class="row">
-
           <div class="flex-column">
-
             <div class="item-category"> supplier:  </div> <div class="item-info"> <%= @item.vendor.name %> </div> </br>
-
             <div class="item-category"> value:  </div> <div class="item-info"> <%= number_to_currency(@item.value, precision:2) %> per <%= @item.purchase_type %> </div> </br>
-
             <div class="item-category"> purchase as:  </div> <div class="item-info"> <%= @item.purchase_type.pluralize %> </div> </br>
           </div>
         </div>
   </div>
 
   <div class="container d-flex justify-content-end" style="margin-top: -160px;">
-
         <div class="row">
-
           <div class="flex-column">
-
             <div class="item-category"> count as:  </div> <div class="item-info"> <%= @item.count_type.pluralize %>, which contain <%= @item.count_measurement %> individual <%= @item.name.pluralize(@item.count_measurement) %> </div> </br>
-
-
             <div class="item-category"> minimum:  </div> <div class="item-info"> <%= @item.minimum %> <%= @item.count_type.pluralize %> </div> </br>
-
             <div class="item-category"> purchase link:  </div> <div class="item-info"> <%= @item.purchase_link %> </div> </br>
-
             <div class="item-category"> supplier stock ID:  </div> <div class="item-info"> <%= @item.vendor_stock_id %> </div> </br>
         </div>
       </div>
   </div>
-
 
   <% @updated_at = [] %>
         <% @item.item_cycle_counts.each do |item_cycle_count| %>
@@ -46,11 +33,8 @@
       <% if @item.item_cycle_counts.present?%>
 
 <div class="container d-flex justify-content-start"  style="margin-top: -60px;">
-
   <div class="row">
-
     <div class="flex-column">
-
       <div class="item-category">  current on-hand: </div> <div class="item-info"> <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <%= @item.count_type.pluralize(@item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity) %> </div>  </br>
       <div class="item-category"> last updated: </div> <div class="item-info"> <% if (Date.today - @updated_at.last.to_date).to_i == 1 %> </div> </br>
               <td> <%= (Date.today - @updated_at.last.to_date).to_i %> day ago </td>
@@ -65,8 +49,7 @@
         <% @item.item_cycle_counts.reverse.each do |item_cycle_count| %>
 
 
-  <div class="history">
-    <div class="col-sm-3">
+    <div class="d-flex flex-column" style="margin-top: 1000px;">
       <div class="card mb-3" style="width: 20rem;">
         <div class="card-header">
           <%= item_cycle_count.updated_at.strftime("%a, %b %-d %Y") %> @ <%=item_cycle_count.updated_at.strftime("%H:%M") %> UTC
@@ -78,16 +61,15 @@
           </li>
         </ul>
       </div>
+    </div>
+
         <% end %>
 
         <% else %>
 
   <div class="container d-flex justify-content-start"  style="margin-top: -60px;">
-
         <div class="row">
-
           <div class="flex-column">
-
             <div class="item-category"> current on-hand: </div> <div class="item-info"> unknown </div> </br>
             <div class="item-category"> last updated: </div> <div class="item-info"> never </div>
         <% end %>
