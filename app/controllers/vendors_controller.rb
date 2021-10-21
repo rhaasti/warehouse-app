@@ -14,7 +14,12 @@ end
 
 def create
   @vendor = Vendor.new(strong_vendor_params)
-  @vendor.save
+  if @vendor.valid?
+     @vendor.save
+     redirect_to vendors_path
+  else
+     @vendor.errors.messages
+  end
 end
 
 private

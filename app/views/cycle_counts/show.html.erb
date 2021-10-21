@@ -44,8 +44,8 @@
   <% @remaining_item_ids.each do |remaining_item| %>
     <% @final_item_list = @all_items_array.filter { |item| item.id == remaining_item } %>
     <% @final_item_list.each do |item| %>
-      <div class="col-sm-4">
-        <div class="card" style="width: 22rem;">
+      <div class="col-sm-3">
+        <div class="card" style="margin: 5px;">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <%= item.name %>, count as
@@ -67,8 +67,8 @@
   <div class="row">
 
   <% @all_selected_items_array.each do |selected_item| %>
-      <div class="col-sm-4">
-        <div class="card" style="width: 22rem;">
+      <div class="col-sm-3">
+        <div class="card" style="margin: 5px;">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <%= selected_item.item.name %>,

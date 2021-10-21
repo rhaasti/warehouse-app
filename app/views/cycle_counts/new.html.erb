@@ -1,7 +1,7 @@
 <div class="background" style="background-image: url('<%= cl_image_path("Warehouse_v5g6tp.jpg", :effect=>"art:al_dente", :opacity=>70) %>');">
   <div class="cycle-count">
     <%= simple_form_for(@cycle_count) do |f| %>
-      <%= f.submit "begin new cycle count" %>
+      <%= f.submit "begin new cycle count", class: "button" %>
     <% end %>
   </div>
 

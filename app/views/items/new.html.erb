@@ -1,3 +1,4 @@
+<div class="background" style="background-image: url('<%= cl_image_path("Warehouse_v5g6tp.jpg", :effect=>"art:al_dente", :opacity=>70) %>');">
 
   <%= simple_form_for(@item) do |f| %>
     <%= f.input :name, label: "item name" %>
@@ -8,8 +9,8 @@
     <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you count this item?" %>
     <%= f.input :count_measurement, label: "count_measurement", hint: "how many eaches are contained in one unit of the count type?" %>
     <%= f.input :minimum, label: "minimum", hint: "minimum per count type" %>
-    <%= f.input :inshape_stock_id, label: "inshape stock id" %>
-    <%= f.input :vendor_stock_id, label: "vendor stock id"%>
+    <%= f.input :internal_stock_id, label: "internal stock id" %>
+    <%= f.input :vendor_stock_id, label: "supplier stock id"%>
     <%= f.button :submit, class: "btn-primary" %>
   <% end %>
 
