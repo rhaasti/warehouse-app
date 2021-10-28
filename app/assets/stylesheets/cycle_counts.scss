@@ -5,10 +5,9 @@
   padding-bottom: 25px;
 }
 .cycle-count {
+  font-family: monospace;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
-  font-weight: bold;
   font-size: 24px;
   position: fixed;
   padding-top: 20%;
@@ -19,15 +18,19 @@
 }
 
 h3 {
+  font-family: monospace;
   color: white !important;
   text-shadow: 1px 1px 3px rgba(0,0,0,1);
 }
 
 .card {
+  font-family: monospace;
   box-shadow: 1px 1px 3px rgba(0,0,0,1);
 }
 
 .button {
+  font-family: monospace;
+  padding: 8px;
   color: black;
   background-color: white;
   border-radius: 5px;
