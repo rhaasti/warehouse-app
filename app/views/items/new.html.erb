@@ -1,52 +1,30 @@
 <div class="background" style="background-image: url('<%= cl_image_path("Warehouse_v5g6tp.jpg", :effect=>"art:al_dente", :opacity=>70) %>');">
 
 <div class="container d-flex justify-content-center" style="padding-top: 100px;">
-  <form style="width:700px;">
           <%= simple_form_for(@item) do |f| %>
-    <div class="form-row">
-      <div class="form-group col-md-4">
+
               <%= f.input :name, label: "item name" %>
-      </div>
-      <div class="form-group col-md-4">
+
               <%= f.association :vendor, label: "vendor" %>
-      </div>
 
+              <%= f.input :purchase_link, label: "purchase link" %>
 
-      <div class="form-group col-md-4">
-                <%= f.input :purchase_link, label: "purchase link" %>
-      </div>
-      </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-                <%= f.input :purchase_type, label: "purchase type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you purchase this item?"  %>
-      </div>
-      <div class="form-group col-md-4">
-               <%= f.input :vendor_stock_id, label: "supplier stock id"%>
-      </div>
-      <div class="form-group col-md-4">
+              <%= f.input :purchase_type, label: "purchase type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you purchase this item?"  %>
+
+              <%= f.input :vendor_stock_id, label: "supplier stock id"%>
 
               <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], hint: "in which measurement do you count this item?" %>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
+
               <%= f.input :count_measurement, label: "count_measurement", hint: "how many eaches are contained in one unit of the count type?" %>
-      </div>
-      <div class="form-group col-md-4">
+
               <%= f.input :minimum, label: "minimum", hint: "minimum per count type" %>
-      </div>
-      <div class="form-group col-md-4">
+
               <%= f.input :internal_stock_id, label: "internal stock id" %>
-      </div>
-    </div>
-      <div class="form-group col-md-4">
+
               <%= f.input :value, label: "value", hint: "value of one purchase unit" %>
-      </div>
 
               <%= f.button :submit, class: "btn btn-dark btn-block" %>
           <% end %>
-
-  </form>
 </div>
 
       <!-- this page could use a confirmation prompt "create new item 'blue opaque dice,

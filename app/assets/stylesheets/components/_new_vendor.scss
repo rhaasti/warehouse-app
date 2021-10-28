@@ -1,6 +1,7 @@
 .new-vendor {
+  font-family: monospace;
   display: flex;
   justify-content: center;
-  color: white;
+  color: white !important;
   text-shadow: 1px 1px 3px rgba(0,0,0,1);
 }

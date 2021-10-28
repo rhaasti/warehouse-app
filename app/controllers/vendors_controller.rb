@@ -14,13 +14,13 @@ end
 
 def create
   @vendor = Vendor.new(strong_vendor_params)
-  if @vendor.valid?
-     @vendor.save
-     redirect_to vendors_path
+  if @vendor.save
+        redirect_to vendors_path
   else
-     @vendor.errors.messages
+        flash[:notice] = "You already have a vendor with this name!"
+        redirect_to new_vendor_path
   end
-end
+    end
 
 private
 

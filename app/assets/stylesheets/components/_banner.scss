@@ -1,4 +1,5 @@
 .banner {
+  font-family: monospace;
   position: fixed;
   padding-top: 20%;
 
@@ -8,6 +9,7 @@
 }
 
 .banner h1 {
+  font-family: monospace;
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,1);
@@ -16,6 +18,7 @@
 }
 
 .banner p {
+  font-family: monospace;
   font-size: 30px;
   color: white;
   opacity: .9;
@@ -23,6 +26,7 @@
 }
 
 .banner .signature p {
+  font-family: monospace;
   font-size: 20px;
   font-weight: bold;
   padding-left: 92%;
@@ -30,5 +34,6 @@
 }
 
 .banner a {
+  font-family: monospace;
   color: inherit;
 }
