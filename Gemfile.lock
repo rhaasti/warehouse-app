@@ -63,6 +63,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
+    bootstrap-tooltip-rails (0.1)
+      rails (>= 3.1)
+      thor
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.35.3)
@@ -241,6 +244,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  bootstrap-tooltip-rails
   byebug
   capybara (>= 2.15)
   cloudinary (~> 1.16.0)
