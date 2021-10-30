@@ -17,7 +17,7 @@ def create
   if @vendor.save
         redirect_to vendors_path
   else
-        flash[:notice] = "You already have a vendor with this name!"
+        flash[:notice] = "You already have a vendor with this name."
         redirect_to new_vendor_path
   end
     end
