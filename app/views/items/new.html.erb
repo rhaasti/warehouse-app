@@ -3,12 +3,12 @@
 <div class="container d-flex justify-content-center" style="padding-top: 60px;">
           <%= simple_form_for(@item) do |f| %>
     <div class="form-group row">
-              <%= f.input :name, label: "item name" %>
+              <%= f.input :name, label: "item name", label: "item name", label_html: { class: 'label' } %>
 
-              <%= f.association :vendor, label: "vendor", input_html: { class: 'collection' } %>
+              <%= f.association :vendor, label: "vendor", input_html: { class: 'collection' }, label: "vendor", label_html: { class: 'label' } %>
     </div>
     <div class="form-group row">
-              <%= f.input :purchase_link, label: "purchase link" %>
+              <%= f.input :purchase_link, label: "purchase link", label_html: { class: 'label' } %>
 
     <a data-bs-toggle="tooltip" title="in which measurement do you purchase this item?">
 
@@ -16,7 +16,7 @@
     </a>
     </div>
     <div class="form-group row">
-              <%= f.input :vendor_stock_id, label: "supplier stock id"%>
+              <%= f.input :vendor_stock_id, label: "supplier stock id", label: "internal stock id", label_html: { class: 'label' }%>
     <a data-bs-toggle="tooltip" title="in which measurement do you count this item?">
 
               <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
@@ -34,14 +34,16 @@
 
     </div>
     <div class="form-group row">
-              <%= f.input :internal_stock_id, label: "internal stock id" %>
+              <%= f.input :internal_stock_id, label: "internal stock id", label_html: { class: 'label' } %>
 
     <a data-bs-toggle="tooltip" title="value of one purchase unit">
 
               <%= f.input :value, label: "value", label_html: { class: 'hint' } %>
     </a>
     </div>
-              <%= f.button :submit, class: "btn btn-dark btn-block" %>
+    <div class="form-group row" style="padding-left: 160px;">
+              <%= f.button :submit, class: "btn btn-dark" %>
+    </div>
           <% end %>
 </div>
 

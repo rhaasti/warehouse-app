@@ -15,8 +15,12 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(strong_params)
     @item.user = current_user
-    @item.save
-    redirect_to items_path
+    if @item.save
+      redirect_to items_path
+    else
+      flash[:notice] = "Please ensure you've included all of the information about your new item."
+      redirect_to new_item_path
+    end
   end
 
   private
