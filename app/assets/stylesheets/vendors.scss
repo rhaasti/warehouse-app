@@ -12,9 +12,19 @@
     width: 1%;
 }
 
-.table-div {
-  display: flex;
-  margin-left: 400px;
-  width: 40%;
+.btn {
+  color: white;
+  border: none;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
 }
+
+.vendor-link {
+  color: white;
+}
+
+.vendor-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
 

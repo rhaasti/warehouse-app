@@ -4,20 +4,31 @@
   <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
-
+        <th scope="col">#</th>
         <th scope="col">Vendor</th>
+        <th scope="col">Total Items For Supplier</th>
         <th scope="col">Created On</th>
       </tr>
     </thead>
-
     <tbody>
+    <% @row = 0 %>
+
 
       <% @vendors = @vendors.sort_by { |vendor| vendor.name } %>
 
       <% @vendors.each do |vendor| %>
+        <% @total_items = [] %>
         <tr data-link="<%= vendor_path(vendor) %>">
-
+            <th scope="row"><%= @row += 1 %></th>
             <td><%= vendor.name %></td>
+            <% vendor.items.each do |item|%>
+              <% @total_items.push(item) %>
+            <% end %>
+            <% if @total_items.length == 0 %>
+                <td> - </td>
+              <% else %>
+                <td> <%= @total_items.length %> </td>
+              <% end %>
             <td><%= vendor.created_at.strftime("%a, %b %-d %Y") %></td>
       <% end %>
         </tr>
