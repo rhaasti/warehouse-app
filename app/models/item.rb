@@ -4,7 +4,9 @@ class Item < ApplicationRecord
   belongs_to :user
   validates :name, uniqueness: true
   validates :name, presence: true
-  validates :purchase_measurement, presence: true
+  validates :internal_stock_id, presence: true
+  validates :vendor_stock_id, presence: true
+  validates :purchase_link, presence: true
   validates :count_measurement, presence: true
   validates :count_type, presence: true
   validates :purchase_type, presence: true

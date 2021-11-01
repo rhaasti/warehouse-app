@@ -1,11 +1,11 @@
 <div class="background" style="background-image: url('<%= cl_image_path("Warehouse_v5g6tp.jpg", :effect=>"art:al_dente", :opacity=>70) %>');">
 
-<div class="container d-flex justify-content-center" style="padding-top: 60px;">
+<div class="container d-flex justify-content-center" style="padding-top: 150px;">
           <%= simple_form_for(@item) do |f| %>
     <div class="form-group row">
               <%= f.input :name, label: "item name", label: "item name", label_html: { class: 'label' } %>
 
-              <%= f.association :vendor, label: "vendor", input_html: { class: 'collection' }, label: "vendor", label_html: { class: 'label' } %>
+              <%= f.association :vendor, label: "vendor", input_html: { class: 'collection' }, label: "supplier", label_html: { class: 'label' } %>
     </div>
     <div class="form-group row">
               <%= f.input :purchase_link, label: "purchase link", label_html: { class: 'label' } %>
@@ -16,7 +16,7 @@
     </a>
     </div>
     <div class="form-group row">
-              <%= f.input :vendor_stock_id, label: "supplier stock id", label: "internal stock id", label_html: { class: 'label' }%>
+              <%= f.input :vendor_stock_id, label: "supplier stock id", label_html: { class: 'label' }%>
     <a data-bs-toggle="tooltip" title="in which measurement do you count this item?">
 
               <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
@@ -25,7 +25,7 @@
     <div class="form-group row">
     <a data-bs-toggle="tooltip" title="how many eaches are contained in one unit of the count type?">
 
-              <%= f.input :count_measurement, label: "count_measurement", label_html: { class: 'hint' } %>
+              <%= f.input :count_measurement, label: "count measurement", label_html: { class: 'hint' } %>
     </a>
     <a data-bs-toggle="tooltip" title="minimum per count type">
 
@@ -42,7 +42,7 @@
     </a>
     </div>
     <div class="form-group row" style="padding-left: 160px;">
-              <%= f.button :submit, class: "btn btn-dark" %>
+              <%= f.button :submit, "create item", class: "btn btn-dark" %>
     </div>
           <% end %>
 </div>

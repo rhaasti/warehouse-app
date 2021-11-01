@@ -5,9 +5,9 @@
     <div class="new-vendor">
       <%= simple_form_for(@vendor) do |f| %>
         <div class="form-inputs">
-          <%= f.input :name, label: "vendor name" %>
+          <%= f.input :name, label: "supplier name" %>
         <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-dark btn-sm" %>
+          <%= f.button :submit, "create supplier", class: "btn btn-dark btn-sm" %>
         </div>
         </div>
       <% end %>

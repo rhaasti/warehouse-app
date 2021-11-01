@@ -1,7 +1,18 @@
-<h1> <%= @vendor.name %> </h1>
- <% @vendor.items.each do |item| %>
- <h2> <%= item.name %> </h2>
-<% end %>
+<div class="background" style="background-image: url('<%= cl_image_path("Warehouse_v5g6tp.jpg", :effect=>"art:al_dente", :opacity=>70) %>');">
 
-<%= link_to "all vendors", vendors_path %>
-<%= link_to "home", root_path %>
+<h3> vendor detail | <%= @vendor.name %> </h3>
+
+<div class="vendor-container">
+  <div class="vendor-category"> supplier's items: </div>
+      <div class="container d-flex justify-content-end">
+        <div class="row" style="margin-top:-50px;">
+          <% @vendor.items.each do |item| %>
+            <div class="flex-column">
+              <button type="button" class="btn btn-outline-dark btn-lg"> <%= link_to item.name, item_path(item), :class => "vendor-link" %> </button>
+          <% end %>
+              </div>
+        </div>
+      </div>
+</div>
+
+
