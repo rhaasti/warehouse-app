@@ -1,6 +1,17 @@
 .navbar {
   font-family: monospace;
-  font-size: 13px;
+    @media(min-width: 544px) {
+      font-size: 10px
+    }
+    @media(min-width: 1335px) {
+    font-size: 12px
+  }
+    @media(min-width: 1440px) {
+    font-size: 13px
+  }
+    @media(min-width: 1920px) {
+    font-size: 15px
+  }
 }
 
 .navbar .user {
