@@ -3,7 +3,7 @@
 <h3> vendor detail | <%= @vendor.name %> </h3>
 
 <div class="vendor-container">
-  <div class="vendor-category"> supplier's items: </div>
+  <div class="vendor-category"> <%= @vendor.name %>'s items: </div>
       <div class="container d-flex justify-content-end">
         <div class="row" style="margin-top:-50px;">
           <% @vendor.items.each do |item| %>
