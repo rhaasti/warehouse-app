@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
     <div class="background" style="background-image: url(https://res.cloudinary.com/dgb8tgxge/image/upload/e_art:audrey,o_20/v1633054283/Warehouse_v5g6tp.jpg);">
+    <%= render 'shared/navbar' %>
     <%= yield %>
   <div class="container d-flex justify-content-center">
     <p class="notice"><%= notice %></p>
