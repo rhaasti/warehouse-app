@@ -12,14 +12,14 @@
 
     <a data-bs-toggle="tooltip" title="in which measurement do you purchase this item?">
 
-              <%= f.input :purchase_type, label: "purchase type", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
+              <%= f.input :purchase_type, label: "purchase unit of measure", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
     </a>
     </div>
     <div class="form-group row">
               <%= f.input :vendor_stock_id, label: "supplier stock id", label_html: { class: 'label' }%>
     <a data-bs-toggle="tooltip" title="in which measurement do you count this item?">
 
-              <%= f.input :count_type, label: "count type", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
+              <%= f.input :count_type, label: "count unit of measure", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
     </a>
     </div>
     <div class="form-group row">
