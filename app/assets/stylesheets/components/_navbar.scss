@@ -1,15 +1,18 @@
 .navbar {
   font-family: monospace;
-    @media(min-width: 544px) {
-      font-size: 10px
-    }
-    @media(min-width: 1335px) {
+  @media(min-width: 0px) { //between 0px and 544px
     font-size: 13px
   }
-    @media(min-width: 1440px) {
+  @media(min-width: 544px) { //between 544px and 1335px
+    font-size: 12px
+  }
+  @media(min-width: 1335px) { //between 1335px and 1440px
     font-size: 13px
   }
-    @media(min-width: 1920px) {
+  @media(min-width: 1440px) { //between 1440px and 1920px
+    font-size: 15px
+  }
+  @media(min-width: 1920px) {
     font-size: 15px
   }
 }
