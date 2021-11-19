@@ -5,7 +5,7 @@
 </div>
 
 <div class="item-show-responsive-top">
-  <div class="container d-flex justify-content-start" style="margin-top: 80px;">
+  <div class="container d-flex justify-content-start">
         <div class="row">
           <div class="flex-column">
             <div class="item-category"> supplier:  </div> <div class="item-info"> <%= link_to @item.vendor.name, vendor_path(@item.vendor), :class => "vendor-link" %> </div> </br>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="item-show-responsive">
-  <div class="container d-flex justify-content-end" style="margin-top: -220px;">
+  <div class="container d-flex justify-content-start">
         <div class="row">
           <div class="flex-column">
             <div class="item-category"> count as:  </div> <div class="item-info"> <%= @item.count_type.pluralize %>, which contain <%= @item.count_measurement %> individual <%= @item.name.pluralize(@item.count_measurement) %> </div> </br>
@@ -38,7 +38,7 @@
       <% if @item.item_cycle_counts.present?%>
 
 <div class="item-show-responsive-bottom">
-  <div class="container d-flex justify-content-start"  style="margin-top: -165px;">
+  <div class="container d-flex justify-content-start">
     <div class="row">
       <div class="flex-column">
         <div class="item-category">  current on-hand: </div> <div class="item-info"> <%= @item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity %> <%= @item.count_type.pluralize(@item.item_cycle_counts.find_by(updated_at:@updated_at.last).item_quantity) %> </div>  </br>
@@ -75,7 +75,7 @@
 
     <% else %>
 
-<div class="container d-flex justify-content-start"  style="margin-top: -165px;">
+<div class="container d-flex justify-content-start">
   <div class="row">
       <div class="flex-column">
         <div class="item-category"> current on-hand: </div> <div class="item-info"> unknown </div> </br>

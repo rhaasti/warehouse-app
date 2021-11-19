@@ -59,7 +59,27 @@ td {
   display: flex;
   justify-content: center;
   font-family: monospace;
-  margin-top: 100px;
+  @media(min-width: 0px) { //between 0px and 375px
+    margin-top: 55px;
+  }
+  @media(min-width: 375px) { //between 375px and 820px
+    margin-top: 55px;
+  }
+  @media(min-width: 820px) { //between 820px and 992px
+    margin-top: 200px;
+  }
+  @media(min-width: 992px) { //between 992px and 1245px
+    margin-top: 200px;
+  }
+  @media(min-width: 1245px) { //between 1245 and 1440px
+    margin-top: 200px;
+  }
+  @media(min-width: 1440px) { //between 1440px and 1920px
+    margin-top: 200px;
+  }
+  @media(min-width: 1920px) {
+    margin-top: 200px;
+  }
 }
 
 .item-category {
@@ -83,69 +103,110 @@ td {
 }
 
 .item-show-responsive {
-  @media(min-width: 0px) { //between 0px and 544px
-    margin-top: 135px;
-    width: 500px;
+  @media(min-width: 0px) { //between 0px and 375px
+    max-width: 375px;
+    margin-top: -85px;
   }
-  @media(min-width: 544px) { //between 544px and 820px
-    margin-top: 135px;
-    width: 500px;
+  @media(min-width: 375px) { //between 375px and 820px
+    max-width: 375px;
+    margin-top: -85px;
   }
-  @media(min-width: 820px) { //between 820px and 1440px
-    margin-top: 5px;
-    margin-bottom: -220px;
-    margin-left: 400px;
+  @media(min-width: 820px) { //between 820px and 992px
+    position: absolute;
+    max-width: 400px;
+    margin-top: -220px;
+    margin-left: 50%;
   }
-  @media(min-width: 992px) {
-    width: 590px;
+  @media(min-width: 992px) { //between 992px and 1245px
+    max-width: 450px;
+    margin-top: -335px;
+  }
+  @media(min-width: 1245px) { //between 1245 and 1440px
+    max-width: 600px;
   }
   @media(min-width: 1440px) { //between 1440px and 1920px
-    margin-top: -220px;
+    max-width: 750px;
+    margin-top: -330px;
   }
   @media(min-width: 1920px) {
-    margin-top: -220px;
+    max-width: 800px;
+    margin-top: -330px;
   }
 }
 
 .item-show-responsive-top {
-  @media(min-width: 0px) { //between 0px and 544px
-    margin-top: 80px;
-    width: 500px;
+  @media(min-width: 0px) { //between 0px and 375px
+    max-width: 375px;
+    margin-top: -10px;
   }
-  @media(min-width: 544px) { //between 544px and 820px
-    margin-top: 80px;
-    width: 500px;
+  @media(min-width: 375px) { //between 375px and 820px
+    max-width: 375px;
+    margin-top: -10px;
   }
-  @media(min-width: 820px) { //between 820px and 1440px
+  @media(min-width: 820px) { //between 820px and 992px
+    max-width: 400px;
+    margin-left: 10%;
     margin-top: 80px;
   }
-  @media(min-width: 992px) {
+  @media(min-width: 992px) { //between 992px and 1245px
+    max-width: 450px;
+    margin-left: 10%;
+    margin-bottom: 110px;
+  }
+  @media(min-width: 1245px) { //between 1245 and 1440px
+    max-width: 600px;
+    margin-left: 10%;
   }
   @media(min-width: 1440px) { //between 1440px and 1920px
+    max-width: 750px;
+    margin-left: 10%;
     margin-top: 80px;
   }
   @media(min-width: 1920px) {
+    max-width: 800px;
+    margin-left: 10%;
     margin-top: 80px;
   }
 }
 
 .item-show-responsive-bottom {
-  @media(min-width: 0px) { //between 0px and 544px
-    margin-top: 80px;
-    width: 500px;
+  @media(min-width: 0px) { //between 0px and 375px
+    max-width: 375px;
+    margin-top: -85px;
   }
-  @media(min-width: 544px) { //between 544px and 820px
-    margin-top: 80px;
-    width: 500px;
+  @media(min-width: 375px) { //between 375px and 820px
+    max-width: 375px;
+    margin-top: -85px;
   }
-  @media(min-width: 820px) { //between 820px and 1440px
-    margin-top: -165px;
+  @media(min-width: 820px) { //between 820px and 992px
+    position: absolute;
+    max-width: 400px;
+    margin-left: 10%;
+    margin-top: -90px;
+  }
+  @media(min-width: 992px) { //between 992px and 1245px
+    position: absolute;
+    max-width: 450px;
+    margin-left: 10%;
+    margin-top: -200px;
+  }
+  @media(min-width: 1245px) { //between 1245 and 1440px
+    position: absolute;
+    max-width: 600px;
+    margin-left: 10%;
+    margin-top: -200px;
   }
   @media(min-width: 1440px) { //between 1440px and 1920px
-    margin-top: -165px;
+    position: absolute;
+    max-width: 750px;
+    margin-left: 10%;
+    margin-top: -200px;
   }
   @media(min-width: 1920px) {
-    margin-top: -165px;
+    position: absolute;
+    max-width: 800px;
+    margin-left: 10%;
+    margin-top: -200px;
   }
 }
 
