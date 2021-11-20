@@ -2,18 +2,18 @@
 
 <h3> vendor detail | <%= @vendor.name %> </h3>
 
-<div class="container">
-    <div class="vendor-category"> <%= @vendor.name %>'s items: </div>
+  <div class="container">
+      <div class="vendor-category"> <%= @vendor.name %>'s items: </div>
 
-        <div class="container">
-          <div class="row d-flex justify-content-start" style="margin-top:-50px;">
-            <% @vendor.items.each do |item| %>
-              <div class="flex-column justify-content-start" style="width: auto;">
-                <button type="button" class="btn btn-outline-dark btn-lg"> <%= link_to item.name, item_path(item), :class => "vendor-link" %> </button>
-            <% end %>
-                </div>
+          <div class="container">
+            <div class="row d-flex justify-content-start" style="margin-top:-50px;">
+              <% @vendor.items.each do |item| %>
+                <div class="flex-column justify-content-start" style="width: auto;">
+                  <button type="button" class="btn btn-outline-dark btn-lg"> <%= link_to item.name, item_path(item), :class => "vendor-link" %> </button>
+              <% end %>
+                  </div>
+            </div>
           </div>
-        </div>
+  </div>
 </div>
-
 
