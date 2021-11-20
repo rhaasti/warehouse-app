@@ -2,12 +2,12 @@
 
 <div class="container d-flex justify-content-center" style="padding-top: 150px;">
           <%= simple_form_for(@item) do |f| %>
-    <div class="form-group row">
+    <div class="form-group row justify-content-center">
               <%= f.input :name, label: "item name", label: "item name", label_html: { class: 'label' } %>
 
               <%= f.association :vendor, label: "vendor", input_html: { class: 'collection' }, label: "supplier", label_html: { class: 'label' } %>
     </div>
-    <div class="form-group row">
+    <div class="form-group row justify-content-center">
               <%= f.input :purchase_link, label: "purchase link", label_html: { class: 'label' } %>
 
     <a data-bs-toggle="tooltip" title="in which measurement do you purchase this item?">
@@ -15,14 +15,14 @@
               <%= f.input :purchase_type, label: "purchase unit of measure", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
     </a>
     </div>
-    <div class="form-group row">
+    <div class="form-group row justify-content-center">
               <%= f.input :vendor_stock_id, label: "supplier stock id", label_html: { class: 'label' }%>
     <a data-bs-toggle="tooltip" title="in which measurement do you count this item?">
 
               <%= f.input :count_type, label: "count unit of measure", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
     </a>
     </div>
-    <div class="form-group row">
+    <div class="form-group row justify-content-center">
     <a data-bs-toggle="tooltip" title="how many eaches are contained in one unit of the count type?">
 
               <%= f.input :count_measurement, label: "count measurement", label_html: { class: 'hint' } %>
@@ -33,7 +33,7 @@
     </a>
 
     </div>
-    <div class="form-group row">
+    <div class="form-group row justify-content-center">
               <%= f.input :internal_stock_id, label: "internal stock id", label_html: { class: 'label' } %>
 
     <a data-bs-toggle="tooltip" title="value of one purchase unit">
@@ -46,7 +46,7 @@
     </div>
           <% end %>
 </div>
-
+</div>
       <!-- this page could use a confirmation prompt "create new item 'blue opaque dice,
       which you count as boxes, each containing 25 units, valued at $5.32 each?'" -->
 
