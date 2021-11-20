@@ -1,7 +1,7 @@
 .banner {
   font-family: monospace;
   position: fixed;
-  padding-top: 17%;
+  padding-top: 200px;
 
   /* Preserve aspet ratio */
   min-width: 100%;
@@ -29,11 +29,14 @@
   font-family: monospace;
   font-size: 20px;
   font-weight: bold;
-  padding-left: 91%;
-  padding-top: 14%;
+  width: 150px;
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
 }
 
 .banner a {
   font-family: monospace;
   color: inherit;
 }
+
