@@ -9,7 +9,7 @@
         <div class="row">
           <div class="flex-column">
             <div class="item-category"> supplier:  </div> <div class="item-info"> <%= link_to @item.vendor.name, vendor_path(@item.vendor), :class => "vendor-link" %> </div> </br>
-            <div class="item-category"> value:  </div> <div class="item-info"> <%= number_to_currency(@item.value, precision:2) %> per <%= @item.purchase_type %> </div> </br>
+            <div class="item-category"> value:  </div> <div class="item-info"> <%= number_to_currency(@item.value, precision:2) %> per each </div> </br>
             <div class="item-category"> purchase as:  </div> <div class="item-info"> <%= @item.purchase_type.pluralize %> </div> </br>
           </div>
         </div>
