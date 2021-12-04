@@ -38,10 +38,11 @@
     <div class="background" style="background-image: url(https://res.cloudinary.com/dgb8tgxge/image/upload/e_art:audrey,o_20/v1633054283/Warehouse_v5g6tp.jpg);">
     <%= render 'shared/navbar' %>
     <%= yield %>
-  <div class="container d-flex justify-content-center">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-  </body>
+      <div class="container d-flex justify-content-center">
+        <p class="notice" style="margin-top: -50px;"><%= notice %></p>
+        <p class="alert" style="margin-top: -50px;"><%= alert %></p>
+      </div>
     </div>
+  </body>
+
 </html>

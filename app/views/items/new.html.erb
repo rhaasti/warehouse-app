@@ -1,6 +1,6 @@
 <div class="background" style="background-image: url(https://res.cloudinary.com/dgb8tgxge/image/upload/e_art:al_dente,o_70/v1633054283/Warehouse_v5g6tp.jpg);">
 
-<div class="container d-flex justify-content-center" style="padding-top: 150px;">
+<div class="container d-flex justify-content-center" style="padding-top: 50px;">
           <%= simple_form_for(@item) do |f| %>
     <div class="form-group row justify-content-center">
               <%= f.input :name, label: "item name", label: "item name", label_html: { class: 'label' } %>
@@ -12,14 +12,14 @@
 
     <a data-bs-toggle="tooltip" title="in which measurement do you purchase this item?">
 
-              <%= f.input :purchase_type, label: "purchase unit of measure", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
+              <%= f.input :purchase_type, label: "purchase unit of measure", collection: ["case", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
     </a>
     </div>
     <div class="form-group row justify-content-center">
               <%= f.input :vendor_stock_id, label: "supplier stock id", label_html: { class: 'label' }%>
     <a data-bs-toggle="tooltip" title="in which measurement do you count this item?">
 
-              <%= f.input :count_type, label: "count unit of measure", collection: ["box", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
+              <%= f.input :count_type, label: "count unit of measure", collection: ["case", "roll", "each", "pallet"], label_html: { class: 'hint' }, input_html: { class: 'collection' } %>
     </a>
     </div>
     <div class="form-group row justify-content-center">
@@ -46,8 +46,6 @@
     </div>
           <% end %>
 </div>
-</div>
-      <!-- this page could use a confirmation prompt "create new item 'blue opaque dice,
-      which you count as boxes, each containing 25 units, valued at $5.32 each?'" -->
+
 
 

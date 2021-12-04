@@ -28,6 +28,7 @@
     </ul>
   </div>
   <% if current_user.nil? %>
+    <%= link_to "sign in", new_user_session_path %>
   <% else %>
   <div class="user">
     logged in as <%= current_user.email.split("@")[0] %>

@@ -1,4 +1,5 @@
 class VendorsController < ApplicationController
+    skip_before_action :authenticate_user!, except: [:new]
 
 def index
   @vendors = Vendor.all
@@ -17,7 +18,7 @@ def create
   if @vendor.save
         redirect_to vendors_path
   else
-        flash[:notice] = "You already have a vendor with this name."
+        flash[:alert] = "You already have a supplier with this name."
         redirect_to new_vendor_path
   end
     end

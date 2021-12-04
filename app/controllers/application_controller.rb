@@ -12,4 +12,10 @@ class ApplicationController < ActionController::Base
   { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
+private
+
+  def after_sign_out_path_for(resource_or_scope)
+        new_user_session_path
+  end
+
 end

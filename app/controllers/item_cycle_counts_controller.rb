@@ -1,4 +1,5 @@
 class ItemCycleCountsController < ApplicationController
+    skip_before_action :authenticate_user!
 
   def index
     @item_cycle_counts = ItemCycleCount.all

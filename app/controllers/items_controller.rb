@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, except: [:new]
+
 
   def index
     @items = Item.all
@@ -18,7 +20,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to items_path
     else
-      flash[:notice] = "Please ensure you've included all of the information about your new item."
+      flash[:alert] = "Please ensure you've included all of the information about your new item."
       redirect_to new_item_path
     end
   end

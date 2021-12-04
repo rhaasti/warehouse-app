@@ -43,16 +43,9 @@ td {
   text-shadow: none;
 }
 
-.notice {
-  margin-top: -60px;
-  color: white !important;
-  text-shadow: 1px 1px 3px rgba(0,0,0,1);
-}
-
 .alert {
-  margin-top: -60px;
-  color: black;
-  text-shadow: none;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,1);
 }
 
 .history {
