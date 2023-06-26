@@ -17,7 +17,7 @@ Built With:
 
 Contributors
 
-    → Ryan Hastings - [Github](https://github.com/rhaasti) [LinkedIn](https://www.linkedin.com/in/rhaasti)
+  - Ryan Hastings - [Github](https://github.com/rhaasti) [LinkedIn](https://www.linkedin.com/in/rhaasti)
 
 License
 
